@@ -1,4 +1,4 @@
-# ctf-docker
+# ctf-vscode-container
 
 ## Requirements
 To use this repo, you have to have Docker and vscode installed, as well as the "Remote Development" extension for it.
