@@ -1,9 +1,9 @@
 FROM kalilinux/kali-rolling
 ENV USERNAME=kali
 ENV DEBIAN_FRONTEND=noninteractive
-
 # Replace kali-linux-large with the specific metapackage you want to install. 
-RUN apt update && apt install sudo python3-pip dialog kali-linux-large -y
+RUN apt update && apt install kali-linux-large -y
+RUN apt install iputils-ping sudo python3-pip dialog nano -y
 
 # Add new user as a sudoer.
 RUN useradd -m $USERNAME && \
