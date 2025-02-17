@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install kali-linux-large -y
 RUN apt install iputils-ping sudo python3-pip dialog nano -y
 
+RUN apt install steghide hexedit -y
+
 # Add new user as a sudoer.
 RUN useradd -m $USERNAME && \
         echo "$USERNAME:$USERNAME" | chpasswd && \
