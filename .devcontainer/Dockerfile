@@ -3,11 +3,11 @@ ENV USERNAME=kali
 ARG ZSH_THEME=htb
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
-RUN apt install kali-linux-large -y
+RUN apt install kali-linux-everything -y
 RUN apt install iputils-ping sudo python3-pip dialog nano git zsh curl -y
 
 # Additional tools
-RUN apt install steghide hexedit -y
+RUN apt install kali-tools-crypto-stego python3-zbar -y
 
 # Add new user as a sudoer.
 RUN useradd -m $USERNAME && \
