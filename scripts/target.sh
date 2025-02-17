@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TARGET_HOSTNAME_VAR="Home"
-TARGET_IP_VAR="127.0.0.1"
+TARGET_HOSTNAME_VAR=""
+TARGET_IP_VAR="0.0.0.0"
 
 if [[ -n "${TARGET_HOSTNAME_VAR}" && -n "${TARGET_IP_VAR}" ]]; then
     if grep -q "$TARGET_HOSTNAME_VAR" /etc/hosts; then

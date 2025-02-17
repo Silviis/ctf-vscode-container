@@ -25,4 +25,4 @@ USER $USERNAME
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 RUN sed -i "s!robbyrussell!${ZSH_THEME}!g" /home/$USERNAME/.zshrc  # Replace default theme
 RUN sudo chsh -s /bin/zsh $USERNAME
-RUN echo 'if [ -f /workspaces/ctf-vscode-container/htb/scripts/target.sh ]; then source /workspaces/ctf-vscode-container/htb/scripts/target.sh; fi' >> ~/.zshrc
+RUN echo 'if [ -f /workspaces/ctf-vscode-container/scripts/target.sh ]; then source /workspaces/ctf-vscode-container/scripts/target.sh; fi' >> ~/.zshrc
