@@ -1,9 +1,10 @@
 FROM kalilinux/kali-rolling
 ENV USERNAME=kali
+ARG ZSH_THEME=htb
 ENV DEBIAN_FRONTEND=noninteractive
-# Replace kali-linux-large with the specific metapackage you want to install. 
-RUN apt update && apt install kali-linux-large -y
-RUN apt install iputils-ping sudo python3-pip dialog nano -y
+RUN apt update
+RUN apt install kali-linux-large -y
+RUN apt install iputils-ping sudo python3-pip dialog nano git zsh curl -y
 
 # Additional tools
 RUN apt install steghide hexedit -y
@@ -18,3 +19,10 @@ RUN useradd -m $USERNAME && \
         # Replace 1000 with your user/group id
         usermod  --uid 1000 $USERNAME && \
         groupmod --gid 1000 $USERNAME
+
+# oh-my-zsh
+USER $USERNAME
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+RUN sed -i "s!robbyrussell!${ZSH_THEME}!g" /home/$USERNAME/.zshrc  # Replace default theme
+RUN sudo chsh -s /bin/zsh $USERNAME
+RUN echo 'if [ -f /workspaces/ctf-vscode-container/htb/scripts/target.sh ]; then source /workspaces/ctf-vscode-container/htb/scripts/target.sh; fi' >> ~/.zshrc

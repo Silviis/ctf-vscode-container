@@ -16,6 +16,7 @@
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
 		"--volume=/dev/net/tun:/dev/net/tun",
+		"--volume=./.devcontainer/htb.zsh-theme:/home/kali/.oh-my-zsh/themes/htb.zsh-theme",
 		"--ipc=host"
 		// uncomment to use intel iGPU
 		// "--device=/dev/dri"
