@@ -17,9 +17,9 @@
 		"--volume=/mnt/wslg:/mnt/wslg",
 		"--volume=/dev/net/tun:/dev/net/tun",
 		"--volume=./.devcontainer/htb.zsh-theme:/home/kali/.oh-my-zsh/themes/htb.zsh-theme",
-		"--ipc=host"
+		"--ipc=host",
 		// uncomment to use intel iGPU
-		// "--device=/dev/dri"
+		"--device=/dev/dri"
 	],
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows

@@ -3,11 +3,16 @@ ENV USERNAME=kali
 ARG ZSH_THEME=htb
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
-RUN apt install kali-linux-everything -y
-RUN apt install iputils-ping sudo python3-pip dialog nano git zsh curl -y
+RUN apt install -y kali-linux-everything \
+        kali-tools-crypto-stego
 
 # Additional tools
-RUN apt install kali-tools-crypto-stego python3-zbar -y
+RUN apt install -y \
+        iputils-ping sudo dialog nano git zsh curl rlwrap \
+        python3-pip python3-requests python3-zbar python3-pillow\
+        python3-unicorn python3-opencv
+
+RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Add new user as a sudoer.
 RUN useradd -m $USERNAME && \
